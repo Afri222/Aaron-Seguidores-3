@@ -6,12 +6,12 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="com.miglayout.swing_11.4.2.jar">
+	<classpathentry kind="lib" path="C:/Users/Kevin/Downloads/miglayout-swing-11.4.2.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="com.miglayout.core_11.4.2.jar">
+	<classpathentry kind="lib" path="C:/Users/Kevin/Downloads/miglayout-core-11.4.2.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>

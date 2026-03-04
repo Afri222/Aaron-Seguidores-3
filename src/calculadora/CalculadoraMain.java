@@ -3,6 +3,7 @@ package calculadora;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,6 +17,12 @@ public class CalculadoraMain implements ActionListener{
 
 	private JFrame frame;
 	private JTextField campoTexto;
+	
+	private String pantalla;
+	private Comprobaciones comprobacion;
+	private ArrayList<String> listaNumeros;
+	//campoTexto
+	
 
 	/**
 	 * Launch the application.
@@ -37,6 +44,8 @@ public class CalculadoraMain implements ActionListener{
 	 * Create the application.
 	 */
 	public CalculadoraMain() {
+		this.pantalla = "";
+		//this.comprobacion = new Comprobaciones();
 		initialize();
 	}
 
@@ -110,8 +119,40 @@ public class CalculadoraMain implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton boton=(JButton)e.getSource();
-		String numero = campoTexto.getText()+boton.getText();
+		String numero = campoTexto.getText();
+		//String numero = campoTexto.getText()+boton.getText();
 		campoTexto.setText(numero);
+		
+		if (pantalla.isEmpty() && !numero.equals("=")) {
+			pantalla = numero;
+			campoTexto.setText(pantalla);
+		}else {
+			if (!numero.equals("=")){				
+				String ultimaLetra = pantalla.substring(pantalla.length() - 1);
+				
+				boolean operadorActual = comprobacion.getOPERADORES().contains(numero);
+				boolean operadorUltimo = comprobacion.getOPERADORES().contains(ultimaLetra);
+				if (operadorActual && operadorUltimo) {
+					pantalla = pantalla.substring(0, pantalla.length() - 1) + numero;
+					campoTexto.setText(pantalla);
+				}
+				else {
+					pantalla += numero;
+					campoTexto.setText(pantalla);
+				}
+			}else {
+				System.out.println("se presiono igual");
+				listaNumeros = comprobacion.lecturaPantalla(pantalla);
+				System.out.println("Lista de numeros: " + listaNumeros);
+				//aplicar la logica de hacer la jerarquia
+				comprobacion.jerarquiaMultDiv(listaNumeros);
+				//recorrer hasta encontrar x o / 
+				
+				//cuando termine de hacer esto solo queda + o -
+				
+				
+			}
+		}
 		
 	}
 
