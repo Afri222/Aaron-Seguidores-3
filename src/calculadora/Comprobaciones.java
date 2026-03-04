@@ -13,7 +13,7 @@ public class Comprobaciones {
 	
 	
 	public Comprobaciones() {
-		this.OPERADORES = Set.of("+","-","x","/","=");
+		this.OPERADORES = Set.of("+","-","*","/","=");
 		this.listNumeros = new ArrayList<String>();
 		
 	}
@@ -48,7 +48,7 @@ public class Comprobaciones {
 		String str = subStr.substring(indice);
 		if (str.indexOf('+') == -1 &&
 				str.indexOf('-') == -1 &&
-				str.indexOf('x') == -1 && 
+				str.indexOf('*') == -1 && 
 				str.indexOf('/') == -1) {
 			return false;			
 		}	
@@ -64,7 +64,7 @@ public class Comprobaciones {
 			//System.out.println(listaNumeros.get(i)); 
 			
 			//Usar las clase Operadores
-			if (listaNumeros.get(i).equals("x")) {
+			if (listaNumeros.get(i).equals("*")) {
 				System.out.println("Poscicion Actual: " +  i + "------" + listaNumeros.get(i));
 				resultado = Integer.parseInt(listaNumeros.get(i - 1)) * Integer.parseInt(listaNumeros.get(i + 1));
 				listaNumeros.set(i - 1, String.valueOf(resultado));
@@ -87,7 +87,7 @@ public class Comprobaciones {
 		System.out.println("tamaño Lista: " + listaNumeros.size());
 		System.out.println(listaNumeros);
 		
-		if (listaNumeros.size() == 1)
+		/*if (listaNumeros.size() == 1)
 			return listaNumeros;
 		else {
 			for(int i = 0; i < listaNumeros.size(); i++) {
@@ -106,7 +106,7 @@ public class Comprobaciones {
 				}
 				System.out.println("Iterador: " +i);
 			}
-		}
+		}*/
 		System.out.println(listaNumeros);
 		return listaNumeros;
 	}

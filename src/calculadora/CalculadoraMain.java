@@ -45,7 +45,7 @@ public class CalculadoraMain implements ActionListener{
 	 */
 	public CalculadoraMain() {
 		this.pantalla = "";
-		//this.comprobacion = new Comprobaciones();
+		this.comprobacion = new Comprobaciones();
 		initialize();
 	}
 
@@ -113,13 +113,31 @@ public class CalculadoraMain implements ActionListener{
 		
 		JButton division = new JButton("/");
 		panel.add(division, "cell 3 3");
+		
+		cero.addActionListener(this);
+		uno.addActionListener(this);
+		dos.addActionListener(this);
+		tres.addActionListener(this);
+		cuatro.addActionListener(this);
+		cinco.addActionListener(this);
+		seis.addActionListener(this);
+		siete.addActionListener(this);
+		ocho.addActionListener(this);
+		nueve.addActionListener(this);
+		borrarTodo.addActionListener(this);
+		suma.addActionListener(this);
+		resta.addActionListener(this);
+		multiplicacion.addActionListener(this);
+		division.addActionListener(this);
+		igualA.addActionListener(this);
 	
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton boton=(JButton)e.getSource();
-		String numero = campoTexto.getText();
+		String numero = boton.getText();
+		System.out.println(boton.getText());
 		//String numero = campoTexto.getText()+boton.getText();
 		campoTexto.setText(numero);
 		
